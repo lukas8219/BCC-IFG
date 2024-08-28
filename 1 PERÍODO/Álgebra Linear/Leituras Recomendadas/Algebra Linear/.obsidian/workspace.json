@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "84cf637f646f03c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "019c587aefc3e2fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54998bb5f7e44aef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linear Algebra Done Right by Axler/1. Vector Spaces.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "540eae657a080dec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Álgebra Linear by Steinbrunch and Winterle/Espaços Vetoriais.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2314d4e6b4a1daae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linear Algebra Done Right by Axler/2. Finite-Dimensional Vector Spaces.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ded2ac49a0696469",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b08ebf983e15695",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4fd56a809f49813a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b766b6452dd55e1c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9e05d84cc3d9a0cd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "0173a800e579b75c",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b87f93b0bffa7b5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7042334de355985",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Álgebra Linear by Steinbrunch and Winterle/Espaços Vetoriais.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1c88628f69e7edd0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Álgebra Linear by Steinbrunch and Winterle/Espaços Vetoriais.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "937fe010311a377e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "98c1bbc48e133d83",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Álgebra Linear by Steinbrunch and Winterle/Espaços Vetoriais.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "540eae657a080dec",
+  "lastOpenFiles": [
+    "Linear Algebra Done Right by Axler/1. Vector Spaces.md",
+    "Álgebra Linear by Steinbrunch and Winterle/Espaços Vetoriais.md",
+    "Álgebra Linear by Steinbrunch and Winterle",
+    "Linear Algebra Done Right by Axler/2. Finite-Dimensional Vector Spaces.md",
+    "Welcome.md",
+    "Linear Algebra Done Right by Axler"
+  ]
+}
