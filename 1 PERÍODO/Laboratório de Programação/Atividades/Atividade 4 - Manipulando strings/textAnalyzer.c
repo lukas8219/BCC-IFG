@@ -3,6 +3,8 @@
 #include <string.h>
 
 // le um texto do terminal e imprime quantas vezes cada letra aparece
+// ola mundo !!
+// o = 2, l = 1, a = 1
 
 int main()
 {
@@ -10,21 +12,17 @@ int main()
     printf("Insira seu texto: ");
     gets(text);
 
-    int alphabet[26] = {0}; // numero maximo de letras no alfabeto 
-
-    for (int i = 0; i < strlen(text); i++)
+    int ascii[128] = {0}; // numero maximo de letras no alfabeto 
+    for (int i = 0; text[i] != '\0'; i++)
     {
-        if (toupper(text[i]) >= 'A' && toupper(text[i]) <= 'Z')
-        {
-            alphabet[toupper(text[i]) - 'A']++; 
-        }
+        ascii[(text[i])]++; 
     }
     
-    for (int i = 0; i < 26; i++)
+    for (int i = 0; i < 128; i++)
     {
-        if(alphabet[i] != 0)
+        if(ascii[i] != 0)
         {
-            printf("%c: %d\n", i + 'A', alphabet[i]);
+            printf("%c: %d\n", i + 'A', ascii[i]);
         }
     }
     return 0;

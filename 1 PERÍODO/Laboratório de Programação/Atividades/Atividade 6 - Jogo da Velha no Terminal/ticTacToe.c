@@ -57,10 +57,10 @@ int main(void)
     
         status = getStatus(board);
         if (status == 1 || status == 2) {
-            printf("\a Parabens, jogador %d! Voce ganhou!", status);
+            printf("\aParabens, jogador %d! Voce ganhou!", status);
         }
         if (status == 3) {
-            printf("\a Empate!\n");
+            printf("\aEmpate!\n");
         }
     } while (status == 0);
     

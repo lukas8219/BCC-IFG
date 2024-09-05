@@ -3,13 +3,16 @@
 
 int main()
 {
+    // ola
+    // alo
     char text[100];
     char temp[100];
+    int size = 0;
 
     printf("Insira o seu texto: ");
     gets(text);
 
-    int size = strlen(text);
+    size = strlen(text);
 
     for (int i = 0, j = size - 1; i < size; i++, j--)
     {
