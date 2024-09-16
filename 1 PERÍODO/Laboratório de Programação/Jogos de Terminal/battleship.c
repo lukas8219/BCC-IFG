@@ -5,21 +5,23 @@
 #include <conio.h> 
 
 #define ROWS 10
-#define COLUNNS 10
-#define MOVESET 25
+#define COLUMNS 10
+#define MOVESET 25 // maximum number of moves allowed
 
+// functions
 void setGame(void);
 bool isValidPosition(int x, int y, int direction, int length);
 void printBoard(void);
 bool isValidMove(char input[]);
 int getStatus(void);
 
-char board[ROWS][COLUNNS]; // UI
-char fleetBoard[ROWS][COLUNNS] = {0};
+// global variables 
+char board[ROWS][COLUMNS]; // visible board (UI)
+char shipBoard[ROWS][COLUMNS] = {0}; // board representing ship locations
 
-char moveSet = 0;
-int points = 0; 
-int status = 0;  
+char remainingMoves = 0; // remaining moves
+int hitCount = 0; // player score 
+int gameStatus = 0; // (0 - ongoing, 1 - game over, 2 - victory)
 
 int main(void)
 {
@@ -34,30 +36,35 @@ int main(void)
         gets(move);
         fflush(stdin);
 
+        // validate the move
         if (isValidMove(move) == true)
         {
-            int row = move[0] - '0';
-            int colunn =  move[1] - 'A';
-            if (fleetBoard[row][colunn] == 'W')
+            int row = move[0] - '0'; // get the actually x and y in integers 
+            int column =  move[1] - 'A';
+
+            // check if the move hits a ship ('W')
+            if (shipBoard[row][column] == 'W')
             {
-                fleetBoard[row][colunn] = 'w';
-                board[row][colunn] = 'X';
-                points++;
+                shipBoard[row][column] = 'w'; // mark the ship as hit
+                board[row][column] = 'X'; // visual representation of a hit
+                hitCount++;
                 system("cls");
                 printf("\a");
                 printBoard();
-            } else {
-                board[row][colunn] = 'O';
+            } else { // if player didnt hit a ship
+                board[row][column] = 'O'; // visual representation of a miss
                 system("cls");
                 printBoard();
             }
-            moveSet--;
+            remainingMoves--;
         } else {
             printf("Movimento invalido\n");
         }
 
-        status = getStatus();
-        if (status == 1)
+        // check game status
+        gameStatus = getStatus();
+
+        if (gameStatus == 1) // meaning there's no more moves allowed  
         {
             char keepPlaying = '\0';
             printf("Numero maximo de tentativas alcancado.\nDeseja continuar? (y/n)");
@@ -72,7 +79,7 @@ int main(void)
             } 
         }
 
-        if (status == 2)
+        if (gameStatus == 2) // if the player has hit all ships
         {
             char keepPlaying = '\0';
             printf("Parabens! Todas as embarcacoes foram antingidas.\nDeseja jogar novamente? (y/n)");
@@ -87,7 +94,7 @@ int main(void)
             } 
         }
 
-    } while (status == 0);
+    } while (gameStatus == 0);
     getch();
     return 0;
 }
@@ -96,55 +103,60 @@ void setGame(void)
 {
     for (int i = 0; i < ROWS; i++) // initialize UI board
     {
-        for (int j = 0; j < COLUNNS; j++)
+        for (int j = 0; j < COLUMNS; j++)
         {
             board[i][j] = ' ';
         }
     }
-    moveSet = MOVESET;
-    points = 0;
-    status = 0; 
+
+    remainingMoves = MOVESET; 
+    hitCount = 0;
+    gameStatus = 0; 
 
     for (int i = 0; i < ROWS; i++)
     {
-        for (int j = 0; j < COLUNNS; j++) 
+        for (int j = 0; j < COLUMNS; j++) 
         {
-            fleetBoard[i][j] = ' ';  // Inicializa com espaços em branco
+            shipBoard[i][j] = ' ';  // initialize the fleet board with empty spaces
         }
     }
 
-    int fleet[4][4] = {{1, 4}, {2, 3}, {1, 2}, {5, 1}}; // qntd and length of each ship
+    int fleet[4][4] = {{1, 4}, {2, 3}, {1, 2}, {5, 1}}; // ship count and lengths
+    // ship count  1   2   1   5 
+    // length      4   2   2   1
+
     srand(time(NULL));
     
-    for (int i = 0; i < 4; i++) // acess to qntd 
+    // place each ship on the board
+    for (int i = 0; i < 4; i++) 
     {
         while (fleet[i][0] != 0)
         {
             int x = rand() % 10;
             int y = rand() % 10;
-            int direction = x % 2;
+            int direction = x % 2;  // random direction (0 - vertical, 1 - horizontal)
 
-            if (direction == 0) // crescimento vertifical
+            if (direction == 0) // vertically
             {
-                if (y + fleet[i][1] < 10) // respeitando o limite do tabuleiro
+                if (y + fleet[i][1] < 10) 
                 {
-                    if(isValidPosition(x, y, direction, fleet[i][1])) // tem algo atrapalhando?
+                    if(isValidPosition(x, y, direction, fleet[i][1])) 
                     {
-                        for (int j = 0; j < fleet[i][1]; j++) // vamos marcar as casas do tamanho do navio
+                        for (int j = 0; j < fleet[i][1]; j++) 
                         {
-                            fleetBoard[x][y + j] = 'W';
+                            shipBoard[x][y + j] = 'W';
                         }
                         fleet[i][0]--;
                     }
                 }
-            } else {
-                if (x + fleet[i][1] < 10) // respeitando o limite do tabuleiro
+            } else { // horizontally
+                if (x + fleet[i][1] < 10) 
                 {
-                    if(isValidPosition(x, y, direction, fleet[i][1])) // tem algo atrapalhando?
+                    if(isValidPosition(x, y, direction, fleet[i][1])) 
                     {
-                        for (int j = 0; j < fleet[i][1]; j++) // vamos marcar as casas do tamanho do navio
+                        for (int j = 0; j < fleet[i][1]; j++) 
                         {
-                            fleetBoard[x + j][y] = 'W';
+                            shipBoard[x + j][y] = 'W';
                         }
                         fleet[i][0]--;
                     }
@@ -154,49 +166,50 @@ void setGame(void)
     }
 }
 
+
+// checks if the given position is valid for placing a ship
 bool isValidPosition(int x, int y, int direction, int length)
 {
-    if (direction == 0) // vertical
+    if (direction == 0) 
     {
         for(int i = 0; i < length; i++)
         {
-            if(fleetBoard[x][y + i] != ' ') 
+            if(shipBoard[x][y + i] != ' ') 
             {
-                return false; // se já houver outra embarcacao no caminho
+                return false;  // invalid if the position is already occupied
             }
         }
-    } else { // horizontal
+    } else { 
         for(int i = 0; i < length; i++)
         {
-            if(fleetBoard[x + i][y] != ' ') 
+            if(shipBoard[x + i][y] != ' ') 
             {
-                return false; // se já houver outra embarcacao no caminho
+                return false; 
             }
         } 
     }
     return true;
 }
 
-
 void printBoard(void)
 {
-    int colunns = 0;
+    int columns = 0;
     printf("\t\tBATALHA NAVAL\n");
     printf("\nX - navio atinjido \t O - agua\n");
 
     printf("\n    A | B | C | D | E | F | G | H | I | J |");
     for (int i = 0; i < ROWS; i++)
     {
-        printf("\n%d |", colunns);
+        printf("\n%d |", columns); // print row number 
             
-        for (int j = 0; j < COLUNNS; j++)
+        for (int j = 0; j < COLUMNS; j++)
         {
            printf(" %c |", board[i][j]);
         }
-        colunns++;
+        columns++;
     }
-    printf("\n\t\tPontos: %d", points);
-    printf("\n\nVoce tem mais %d jogadas\n", moveSet);
+    printf("\n\t\tPontos: %d", hitCount);
+    printf("\n\nVoce tem mais %d jogadas\n", remainingMoves);
 }
 
 bool isValidMove(char input[])
@@ -208,9 +221,9 @@ bool isValidMove(char input[])
 
 int getStatus(void)
 {
-    if (points == 17)
+    if (hitCount == 17) // all ships hit
         return 2;
-    if (moveSet == -1)
+    if (remainingMoves == -1) // no moves left
         return 1;
-    return 0;
+    return 0; // game is still ongoing
 }
