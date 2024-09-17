@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct
+{
+    char primeiroNome[100];
+    char sobrenome[100];
+    char email[100];
+    char numeroTelefone[100];
+    char rua[100];
+    char complemento[100];
+    char cidade[100];
+    char estado[100];
+    char cep[100];
+} cliente;
+
+int main()
+{
+    cliente pessoa;
+
+    do
+    {
+        printf("Insira primeiro nome: ");
+        gets(pessoa.primeiroNome);
+        fflush(stdin);
+    } while (strlen(pessoa.primeiroNome) == 0);
+
+    do
+    {
+        printf("Insira sobrenome: ");
+        gets(pessoa.sobrenome);
+        fflush(stdin);
+    } while (strlen(pessoa.sobrenome) == 0);
+
+    printf("Insira e-mail: ");
+    gets(pessoa.email);
+    fflush(stdin);
+
+    printf("Insira numero de relefone: ");
+    gets(pessoa.numeroTelefone);
+    fflush(stdin);
+
+    printf("\nENDERECO\n");
+
+    do
+    {
+        printf("Rua: ");
+        gets(pessoa.rua);
+        fflush(stdin);
+    } while (strlen(pessoa.rua) == 0);
+
+    do
+    {
+        printf("Complemento: ");
+        gets(pessoa.complemento);
+        fflush(stdin);
+    } while (strlen(pessoa.complemento) == 0);
+
+
+    do
+    {
+        printf("Cidade: ");
+        gets(pessoa.cidade);
+        fflush(stdin);
+    } while (strlen(pessoa.cidade) == 0);
+
+
+    do
+    {
+        printf("Estado: ");
+        gets(pessoa.estado);
+        fflush(stdin);
+    } while (strlen(pessoa.estado) == 0);
+
+
+    do
+    {
+        printf("CEP: ");
+        gets(pessoa.cep);
+        fflush(stdin);
+    } while (strlen(pessoa.cep) == 0);
+
+    return 0;
+}
