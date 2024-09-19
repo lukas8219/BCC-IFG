@@ -256,4 +256,8 @@ void printTemplate(void)
         }
         columns++;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 35407e40bba0870dc351a070d8260d88225afdec
