@@ -123,7 +123,7 @@ void setGame(void)
         }
     }
 
-    int fleet[4][4] = {{1, 4}, {2, 3}, {1, 2}, {5, 1}}; // ship count and lengths
+    int fleet[2][2] = {{1, 4}, {2, 3}, {1, 2}, {5, 1}}; // ship count and lengths
     // ship count  1   2   1   5 
     // length      4   2   2   1
 
@@ -140,7 +140,7 @@ void setGame(void)
 
             if (direction == 0) // vertically
             {
-                if (y + fleet[i][1] < 10) 
+                if (y + fleet[i][1] < COLUMNS) 
                 {
                     if(isValidPosition(x, y, direction, fleet[i][1])) 
                     {
@@ -152,7 +152,7 @@ void setGame(void)
                     }
                 }
             } else { // horizontally
-                if (x + fleet[i][1] < 10) 
+                if (x + fleet[i][1] < ROWS) 
                 {
                     if(isValidPosition(x, y, direction, fleet[i][1])) 
                     {
