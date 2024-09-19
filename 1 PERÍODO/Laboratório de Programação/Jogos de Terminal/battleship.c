@@ -14,6 +14,7 @@ bool isValidPosition(int x, int y, int direction, int length);
 void printBoard(void);
 bool isValidMove(char input[]);
 int getStatus(void);
+void printTemplate(void);
 
 // global variables 
 char board[ROWS][COLUMNS]; // visible board (UI)
@@ -67,7 +68,8 @@ int main(void)
         if (gameStatus == 1) // meaning there's no more moves allowed  
         {
             char keepPlaying = '\0';
-            printf("Numero maximo de tentativas alcancado.\nDeseja continuar? (y/n)");
+            printTemplate();
+            printf("\nNumero maximo de tentativas alcancado.\nDeseja continuar? (y/n)");
             scanf("%c", &keepPlaying);
             fflush(stdin);
 
@@ -226,4 +228,32 @@ int getStatus(void)
     if (remainingMoves == -1) // no moves left
         return 1;
     return 0; // game is still ongoing
+}
+
+void printTemplate(void)
+{
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLUMNS; j++)
+        {
+            if (board[i][j] == ' ')
+            {
+                board[i][j] = shipBoard[i][j];
+            }
+        }
+    }
+    printf("\n\t\tGABARITO\n\tNavios nao antingidos - W\n");
+    printf("\n    A | B | C | D | E | F | G | H | I | J |");
+
+    int columns = 0;
+    for (int i = 0; i < ROWS; i++)
+    {
+        printf("\n%d |", columns); // print row number 
+            
+        for (int j = 0; j < COLUMNS; j++)
+        {
+           printf(" %c |", board[i][j]);
+        }
+        columns++;
+    }
 }
