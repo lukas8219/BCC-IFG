@@ -1,24 +1,21 @@
 {
   "main": {
-    "id": "84cf637f646f03c4",
+    "id": "b661328f2a4837cb",
     "type": "split",
     "children": [
       {
-        "id": "019c587aefc3e2fb",
+        "id": "133d65724f916271",
         "type": "tabs",
         "children": [
           {
-            "id": "54998bb5f7e44aef",
+            "id": "211f5f51a67a63a4",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
+                "file": "Introdução à Ciência da Computação/Lista C - Sistemas Operacionais.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
@@ -28,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "ded2ac49a0696469",
+    "id": "617b64280be0a8dc",
     "type": "split",
     "children": [
       {
-        "id": "0b08ebf983e15695",
+        "id": "cdea7522bfe6cd57",
         "type": "tabs",
         "children": [
           {
-            "id": "4fd56a809f49813a",
+            "id": "f9d0a36f03ce9178",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -46,7 +43,7 @@
             }
           },
           {
-            "id": "b766b6452dd55e1c",
+            "id": "631d7d6c1df9b045",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +58,7 @@
             }
           },
           {
-            "id": "9e05d84cc3d9a0cd",
+            "id": "faf1d2bb80ecc35c",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -72,23 +69,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
-    "id": "0173a800e579b75c",
+    "id": "9d567fa3267648dd",
     "type": "split",
     "children": [
       {
-        "id": "0b87f93b0bffa7b5",
+        "id": "8f272adc2ac044f3",
         "type": "tabs",
         "children": [
           {
-            "id": "c7042334de355985",
+            "id": "376d34c5d5dd6241",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "Introdução à Ciência da Computação/Lista C - Sistemas Operacionais.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,19 +98,19 @@
             }
           },
           {
-            "id": "1c88628f69e7edd0",
+            "id": "e3a1efc6b87b73a6",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "Introdução à Ciência da Computação/Lista C - Sistemas Operacionais.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "937fe010311a377e",
+            "id": "b3f1d8ac78737ab4",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -123,12 +121,12 @@
             }
           },
           {
-            "id": "98c1bbc48e133d83",
+            "id": "484ff28fc8743524",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.canvas"
+                "file": "Introdução à Ciência da Computação/Lista C - Sistemas Operacionais.md"
               }
             }
           }
@@ -149,14 +147,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "54998bb5f7e44aef",
+  "active": "211f5f51a67a63a4",
   "lastOpenFiles": [
-    "Linear Algebra Done Right by Axler/1. Vector Spaces.md",
-    "Untitled.canvas",
-    "Linear Algebra Done Right by Axler/2. Finite-Dimensional Vector Spaces.md",
-    "Álgebra Linear by Steinbrunch and Winterle/Espaços Vetoriais.md",
-    "Álgebra Linear by Steinbrunch and Winterle",
-    "Welcome.md",
-    "Linear Algebra Done Right by Axler"
+    "Pasted image 20240928180824.png",
+    "Pasted image 20240928180237.png",
+    "Introdução à Ciência da Computação",
+    "Introdução à Ciência da Computação/Lista C - Sistemas Operacionais.md"
   ]
 }
