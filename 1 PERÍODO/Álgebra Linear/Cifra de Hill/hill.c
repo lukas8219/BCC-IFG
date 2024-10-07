@@ -124,7 +124,7 @@ void printString(char oldString[], char newString[])
             }
         } else {
             // print non-alphanumeric characters as is
-            printf("%c", oldString);
+            printf("%c", oldString[i]);
         }
     }
 }
