@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
+#include <conio.h>
 
 // 2x2 encryption key and its inverse for decryption
 const int key[2][2] = {{3, 1}, {5, 2}};
@@ -17,28 +18,55 @@ void printString(char oldString[], char newString[]);
 
 int main(void)
 {
-    int choice = 0;
-    printf("\t CIFRA DE HILLS\n");
-    printf("\n1. Codificar string\n2. Decodificar string\n\nEscolha uma opcao: ");
-    scanf("%d", &choice);
-    fflush(stdin);
+    int flag = 0;
+    char keepGoing = '\0';
+    while (flag == 0)
+    {
+        int choice = 0;
+        printf("\t CIFRA DE HILLS\n");
+        printf("\n1. Criptografar texto\n2. Descriptografar texto\n\nEscolha uma opcao: ");
+        scanf("%d", &choice);
+        fflush(stdin);
 
-    if (choice == 1)
-    {
-        printf("Insira o texto a ser codificado: ");
-        fgets(plainText, 100, stdin);
-        applyHillCipher();
-        printf("Texto codificado: ");
-        printString(plainText, cipherText);
+        if (choice == 1)
+        {
+            printf("Insira o texto a ser criptografado: ");
+            fgets(plainText, 100, stdin);
+            applyHillCipher();
+            printf("Texto criptografado: ");
+            printString(plainText, cipherText);
+
+            printf("Deseja criptografar/descriptografar outro texto? (s/n): ");
+            scanf("%c", &keepGoing);
+            if (keepGoing == 'n')
+            {
+                flag = 1;
+            } else {
+                system("cls");
+            }
+        }
+        else if (choice == 2)
+        {
+            printf("Insira o texto a ser descriptografado: ");
+            fgets(cipherText, 100, stdin);
+            applyHillDecryption();
+            printf("Texto descriptografado: ");
+            printString(cipherText, plainText);
+
+            printf("Deseja criptografar/descriptografar outro texto? (s/n): ");
+            scanf("%c", &keepGoing);
+            if (keepGoing == 'n')
+            {
+                flag = 1;
+            } else {
+                system("cls");
+            }
+        } else {
+            printf("Opcao invalida.\n");
+        }
     }
-    if (choice == 2)
-    {
-        printf("Insira o texto a ser descodificada: ");
-        fgets(cipherText, 100, stdin);
-        applyHillDecryption();
-        printf("Texto descodificado: ");
-        printString(cipherText, plainText);
-    }
+    getch();
+    return 0;
 }
 
 void applyHillCipher(void)
