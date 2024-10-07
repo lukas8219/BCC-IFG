@@ -25,18 +25,18 @@ int main(void)
 
     if (choice == 1)
     {
-        printf("Insira a string a ser codificada: ");
-        gets(plainText);
+        printf("Insira o texto a ser codificado: ");
+        fgets(plainText, 100, stdin);
         applyHillCipher();
-        printf("Cipher Text: ");
+        printf("Texto codificado: ");
         printString(plainText, cipherText);
     }
     if (choice == 2)
     {
-        printf("Insira a string a ser descodificada: ");
-        gets(cipherText);
+        printf("Insira o texto a ser descodificada: ");
+        fgets(cipherText, 100, stdin);
         applyHillDecryption();
-        printf("Decrypted Text: ");
+        printf("Texto descodificado: ");
         printString(cipherText, plainText);
     }
 }
@@ -98,8 +98,17 @@ void applyHillDecryption(void)
     char tmp1, tmp2;
     for (int i = 0; i < length; i += 2)
     {
-        tmp1 = (((plainText[i] - 'A') * inverseKey[0][0] + (plainText[i + 1] - 'A') * inverseKey[0][1]) + 26) % 26;
-        tmp2 = (((plainText[i] - 'A') * inverseKey[1][0] + (plainText[i + 1] - 'A') * inverseKey[1][1]) + 26) % 26;
+        tmp1 = ((plainText[i] - 'A') * inverseKey[0][0] + (plainText[i + 1] - 'A') * inverseKey[0][1]);
+        while (tmp1 < 0) {
+            tmp1 += 26;
+        }
+        tmp1 %= 26;
+
+        tmp2 = ((plainText[i] - 'A') * inverseKey[1][0] + (plainText[i + 1] - 'A') * inverseKey[1][1]);
+        while (tmp2 < 0) {
+            tmp2 += 26;
+        }
+        tmp2 %= 26;
 
         // convert the result back to characters
         plainText[i] = tmp1 + 'A';
@@ -124,7 +133,7 @@ void printString(char oldString[], char newString[])
             }
         } else {
             // print non-alphanumeric characters as is
-            printf("%c", oldString);
+            printf("%c", oldString[i]);
         }
     }
 }
