@@ -75,11 +75,12 @@ void applyHillCipher(void)
     // converts them to uppercase
     int j = 0;
     for (int i = 0; i < strlen(plainText); i++) {
-        if (isalnum(plainText[i])) {
+        if (isalpha(plainText[i])) {
             cipherText[j] = toupper(plainText[i]);
             j++;
         }
     }
+
     cipherText[j] = '\0';
     length = strlen(cipherText);
 
@@ -107,7 +108,7 @@ void applyHillDecryption(void)
 {
     int j = 0;
     for (int i = 0; i < strlen(cipherText); i++) {
-        if (isalnum(cipherText[i])) {
+        if (isalpha(cipherText[i])) {
             plainText[j] = toupper(cipherText[i]);
             j++;
         }
@@ -149,7 +150,7 @@ void printString(char oldString[], char newString[])
     for (int i = 0, j = 0; i < strlen(oldString); i++)
     {
         // print the encoded/decoded string, preserving the original case
-        if (isalnum(oldString[i]))
+        if (isalpha(oldString[i]))
         {
             if (islower(oldString[i]))
             {
