@@ -3,7 +3,7 @@ package colaboradores;
 public class Administrador extends Empregado {
     private float ajudaDeCusto;
 
-    Administrador(String nome, String endereco, String telefone, int codigoSetor, float salarioBase, float imposto, float ajudaDeCusto) {
+    public Administrador(String nome, String endereco, String telefone, int codigoSetor, float salarioBase, float imposto, float ajudaDeCusto) {
         super(nome, endereco, telefone, codigoSetor, salarioBase, imposto);
         this.setAjudaDeCusto(ajudaDeCusto);
     }

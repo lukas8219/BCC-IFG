@@ -9,7 +9,7 @@ public class Pessoa {
     private String telefone;
 
     // CONSTRUCTOR
-    Pessoa(String nome, String endereco, String telefone) {
+    public Pessoa(String nome, String endereco, String telefone) {
         this.setNome(nome);
         this.setEndereco(endereco);
         this.setTelefone(telefone);

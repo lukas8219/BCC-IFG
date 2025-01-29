@@ -6,7 +6,7 @@ public class Empregado extends Pessoa {
     private float imposto;
 
     // CONSTRUCTOR
-    Empregado(String nome, String endereco, String telefone, int codigoSetor, float salarioBase, float imposto) {
+    public Empregado(String nome, String endereco, String telefone, int codigoSetor, float salarioBase, float imposto) {
         super(nome, endereco, telefone);
         this.setCodigoSetor(codigoSetor);
         this.setSalarioBase(salarioBase);
