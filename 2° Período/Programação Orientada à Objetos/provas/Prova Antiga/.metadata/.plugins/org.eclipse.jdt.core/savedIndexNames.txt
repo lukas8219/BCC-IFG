@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\karolayne\OneDrive\Documentos\IFG CIÊNCIA DA COMPUTAÇÃO\2° Período\Programação Orientada à Objetos\Prova Antiga\.metadata\.plugins\org.eclipse.jdt.core
+4063355476.index
+1865797976.index
+686612064.index
