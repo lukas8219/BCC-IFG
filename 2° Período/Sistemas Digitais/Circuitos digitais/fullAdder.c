@@ -1,39 +1,35 @@
 #include <stdio.h>
-#include <stdint.h>
 
-// unit8_t is a type that is 8 bits long, aka, is a byte
-typedef uint8_t byte;
-
-void printInBinary(byte a);
-byte fullAdder(int a, int b);
+void printInBinary(int a);
+int fullAdder(int a, int b);
 
 int main(void) {
-    byte a = 0b00001111; // 15
-    byte b = 0b11110000; // 240
-    byte c = fullAdder(a, b);
+    int a = -15;
+    int b = 240;
+    int c = fullAdder(a, b);
     
     printf("  A in binary: "), printInBinary(a);
     printf("\t A in decimal: %d\n", a);
     printf("  B in binary: "), printInBinary(b);
     printf("\t B in decimal: %d\n", b);
-    printf("+ ----------------------------------------\n");
+    printf("+ ----------------------------------------------\n");
     printf("  C in binary: "), printInBinary(c);
     printf("\t C in decimal: %d\n", c);
 }
 
-byte fullAdder(int a, int b) {
-    byte carry = 0b00000000;
+int fullAdder(int a, int b) {
+    int carry = 0b00000000;
     // carryIn
-    byte result = 0b00000000;
+    int result = 0b00000000;
 
-    for (int i = 0; i < sizeof(byte) * 8; i++) {
-        byte bitA = (a >> i) & 1;
-        byte bitB = (b >> i) & 1;
+    for (int i = 0; i < sizeof(int) * 8; i++) {
+        int bitA = (a >> i) & 1;
+        int bitB = (b >> i) & 1;
 
         // this XOR is the same as:
-        // byte sum = (!bitA && !bitB && carry) | (!bitA && bitB && !carry) | (bitA & !bitB & !carry) | (bitA & bitB & carry);
+        // int sum = (!bitA && !bitB && carry) | (!bitA && bitB && !carry) | (bitA & !bitB & !carry) | (bitA & bitB & carry);
         // we find this values by looking at the truth table of fullAdder 
-        byte sum = bitA ^ bitB ^ carry;
+        int sum = bitA ^ bitB ^ carry;
         carry = (bitA & bitB) | (carry & bitB) | (carry & bitA);
 
         // kind similuar of what we did early with the & operator on for loop
@@ -49,9 +45,9 @@ byte fullAdder(int a, int b) {
     return result;
 }
 
-void printInBinary(byte a) {
-    for (int i = sizeof(byte) * 8 - 1; i >= 0; i--) {
-        byte bit = (a >> i) & 1;
+void printInBinary(int a) {
+    for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
+        int bit = (a >> i) & 1;
         printf("%d", bit);
     }
 }

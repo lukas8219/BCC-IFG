@@ -1,0 +1,19 @@
+CAPÍTULO 2 - Análise da complexidade de algoritmos
+
+Em ciência da computação, a análise de algoritmos é a área de pesquisa cujo tema está nos algoritmos. Em ciência da computação, a análise de algoritmos é a área de pesquisa cujo tema está nos algoritmos. Essas diferenças podem ser irrelevantes a princípio, mas tem potencial de crescer proporcionalmnete com o número de elementos processados. 
+A complexidade computacional é uma medida que indica o custo ao se aplicar um algoritmo, sendo: custo = memória + tempo.
+
+2.1 ANÁLISE EMPÍRICA
+Avalia o custo/complexidade de um algoritmo a partir da avaliação da sua execução quando implementado. Podemos usá-la para comparar o processamento de algoritmos em diiferentes linguagens e computadores. O uso de dados aleatórios permite avaliar o desempenho médio do algoritmo. Dados perversos permitem avaliar o desempenho no pior caso.
+
+2.2 ANÁLISE MATEMÁTICA
+Avalia a complexidade do algoritmo por meio de estudo formal de um algoritmo em termos de ideia. Ela faz uso de um computador idealizado e simplicações que buscam considerar somente os custos dominantes do algoritmo. Permite compreender como um programa se comporta à medida que aumentamos a quantidade de inputs. O comportamento assintótico de u algoritmo é descrito por uma função f(n) quando n tende ao infinito, sendo n o número de inputs. 
+A notação big(O) é a representação matemática da análise assintótica do pior caso possível de entredas tamanho n para um algoritmo. Mas também temos:  notação Ω (grande ômega), que descreve o melhor caso de um algoritmo; e a notação Θ (grande theta), que descreve o pior caso.
+As classes de problema costumam ser descritas em:
+- O(1): ordem constante;
+- O(logN): ordem logarítmica;
+- O(N): ordem linear;
+- O(NlogN): ordem log linear:
+- O(N^x): ordem potencial;
+- O(N^N): ordem exponecial;
+- O(N!): fatorial.
