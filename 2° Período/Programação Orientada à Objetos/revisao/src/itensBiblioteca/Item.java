@@ -1,7 +1,8 @@
-package modelos;
+package itensBiblioteca;
 
 import java.util.Date;
 
+import biblioteca.Biblioteca;
 import interfaces.InformacaoItem;
 import interfaces.ItemBiblioteca;
 
@@ -20,20 +21,16 @@ public abstract class Item implements ItemBiblioteca, InformacaoItem {
 		this.setStatus(status);
 	}
 	
-	public abstract String getInformacao();
-	
-	public String emprestar() throws Exception {
-		if (this.status == "Emprestado") {
-			throw new Exception("Livro nao disponivel para emprestimo.");
-		} else {
-			this.status = "Emprestado";
-			return ("Emprestimo realizado.");
-		}
+	public String getInformacao() {
+		return ("Titulo: " + this.titulo + " Autor: " + this.autor + " Ano de Publicacao " + this.anoPublicacao);
 	}
 	
-	public String devolver() {
+	public void emprestar()  {
+		this.status = "Emprestado";
+	}
+	
+	public void devolver() {
 		this.status = "Disponivel";
-		return ("Devolucao realizada.");
 	}
 	
 	public String getId() {

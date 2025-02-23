@@ -1,4 +1,4 @@
-package modelos;
+package itensBiblioteca;
 
 import java.util.Date;
 
@@ -28,7 +28,6 @@ public class Livro extends Item {
 
 	@Override
 	public String getInformacao() {
-		return ("Livro: " + this.titulo + " Autor: " + this.autor + "Ano de Publicacao " + this.anoPublicacao +
-				"ISBN: " + ISBN + " Editora: " + editora + " Status: " + status);
+		return (super.getInformacao() + " ISBN: " + this.ISBN + " Editora: " + this.editora + " Status: " + this.status);
 	}
 }

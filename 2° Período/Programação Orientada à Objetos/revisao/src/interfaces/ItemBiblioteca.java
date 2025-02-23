@@ -1,6 +1,6 @@
 package interfaces;
 
 public interface ItemBiblioteca {
-	public String emprestar() throws Exception;
-	public String devolver();
+	public void emprestar() throws Exception;
+	public void devolver() throws Exception;
 }

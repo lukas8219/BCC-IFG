@@ -1,4 +1,4 @@
-package modelos;
+package itensBiblioteca;
 
 import java.util.Date;
 
@@ -27,7 +27,6 @@ public class Revista extends Item {
 	}
 	
 	public String getInformacao() {
-		return ("Livro: " + this.titulo + " Autor: " + this.autor + "Ano de Publicacao " + this.anoPublicacao +
-				"Editora: " + editora + " ISSN: " + ISSN + " Status: " + status);
+		return (super.getInformacao() + " Editora: " + this.editora + " ISSN: " + this.ISSN + " Status: " + this.status);
 	}
 }
