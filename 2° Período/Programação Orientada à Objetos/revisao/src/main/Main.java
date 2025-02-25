@@ -7,6 +7,7 @@ import java.util.List;
 import ItemFactory.ItemFactory;
 import biblioteca.Biblioteca;
 import biblioteca.Usuario;
+import excecao.MinhaExcecao;
 import itensBiblioteca.*;
 
 /* resumo de pontos para melhorar/revisar
@@ -16,7 +17,7 @@ import itensBiblioteca.*;
 * - usar IDs ao inves de titulos para manipular os itens da biblioteca (facil alterar)
 */
 
-public class main {
+public class Main {
 	public static void main(String[] str) {
 
         // instanciando a biblioteca
@@ -26,34 +27,34 @@ public class main {
         // é preciso fazer o casting pois Factory retorna um ponteiro pra Item, mas meu metodo add so aceita um ponteiro para Livro
         // seria melhor mudar o metodo add para aceitar item?
         // pensei que nao, pois quero me certificar que apenas livros estejam na lista de livros
-        ifg.addLivro((Livro) ItemFactory.newItem("livro", "LIVRO1", "1984", "George Orwell", new Date(), "Disponível", "978-0451524935", "Harvill Secker", null, null));
-        ifg.addLivro((Livro) ItemFactory.newItem("livro", "LIVRO2", "Brave New World", "Aldous Huxley", new Date(), "Disponível", "978-0060850524", "Harper Perennial", null, null));
-        ifg.addLivro((Livro) ItemFactory.newItem("livro", "LIVRO3", "Fahrenheit 451", "Ray Bradbury", new Date(), "Disponível", "978-1451673319", "Simon & Schuster", null, null));
+        ifg.addLivro((Livro) ItemFactory.newItem("livro", "LIVRO1", "1984", "George Orwell", new Date(), Status.DISPONIVEL, "978-0451524935", "Harvill Secker", null, null));
+        ifg.addLivro((Livro) ItemFactory.newItem("livro", "LIVRO2", "Brave New World", "Aldous Huxley", new Date(), Status.DISPONIVEL, "978-0060850524", "Harper Perennial", null, null));
+        ifg.addLivro((Livro) ItemFactory.newItem("livro", "LIVRO3", "Fahrenheit 451", "Ray Bradbury", new Date(), Status.DISPONIVEL, "978-1451673319", "Simon & Schuster", null, null));
         
-        ifg.addRevista((Revista) ItemFactory.newItem("revista", "REVISTA1", "Oyasumi Punpun", "Inio Asano", new Date(), "Disponível", null, "Shinshokan", "123456789", null));
-        ifg.addRevista((Revista) ItemFactory.newItem("revista", "REVISTA2", "Chainsaw Man", "Tatsuki Fujimoto", new Date(), "Disponível", null, "Shueisha", "987654321", null));
-        ifg.addRevista((Revista) ItemFactory.newItem("revista", "REVISTA3", "Hirunaka no Ryuusei", "Souichirou Yamamoto", new Date(), "Disponível", null, "Kodansha", "123789456", null));
+        ifg.addRevista((Revista) ItemFactory.newItem("revista", "REVISTA1", "Oyasumi Punpun", "Inio Asano", new Date(), Status.DISPONIVEL, null, "Shinshokan", "123456789", null));
+        ifg.addRevista((Revista) ItemFactory.newItem("revista", "REVISTA2", "Chainsaw Man", "Tatsuki Fujimoto", new Date(), Status.DISPONIVEL, null, "Shueisha", "987654321", null));
+        ifg.addRevista((Revista) ItemFactory.newItem("revista", "REVISTA3", "Hirunaka no Ryuusei", "Souichirou Yamamoto", new Date(), Status.DISPONIVEL, null, "Kodansha", "123789456", null));
         
-        ifg.addDVD((DVD) ItemFactory.newItem("dvd", "DVD1", "Rebuild of Evangelion: 1.0 You Are (Not) Alone", "Hideaki Anno", new Date(), "Disponível", null, null, null, "Japonês"));
-        ifg.addDVD((DVD) ItemFactory.newItem("dvd", "DVD2", "Rebuild of Evangelion: 2.0 You Can (Not) Advance", "Hideaki Anno", new Date(), "Disponível", null, null, null, "Japonês"));
-        ifg.addDVD((DVD) ItemFactory.newItem("dvd", "DVD3", "Rebuild of Evangelion: 3.0 You Can (Not) Redo", "Hideaki Anno", new Date(), "Disponível", null, null, null, "Japonês"));
+        ifg.addDVD((DVD) ItemFactory.newItem("dvd", "DVD1", "Rebuild of Evangelion: 1.0 You Are (Not) Alone", "Hideaki Anno", new Date(), Status.DISPONIVEL, null, null, null, "Japonês"));
+        ifg.addDVD((DVD) ItemFactory.newItem("dvd", "DVD2", "Rebuild of Evangelion: 2.0 You Can (Not) Advance", "Hideaki Anno", new Date(), Status.DISPONIVEL, null, null, null, "Japonês"));
+        ifg.addDVD((DVD) ItemFactory.newItem("dvd", "DVD3", "Rebuild of Evangelion: 3.0 You Can (Not) Redo", "Hideaki Anno", new Date(), Status.DISPONIVEL, null, null, null, "Japonês"));
         
         // instanciando ususario
 		Usuario karol = new Usuario("Karol");
 		// adicionando emprestimos a conta de Karol
 		try {
 			ifg.novoEmprestismo("Brave New World");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		try {
 			ifg.novoEmprestismo("Oyasumi Punpun");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		try {
 			ifg.novoEmprestismo("Rebuild of Evangelion: 1.0 You Are (Not) Alone");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		
@@ -62,24 +63,24 @@ public class main {
 		// adicionando emprestimos errados
 		try {
 			ifg.novoEmprestismo("Brave new world");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		try {
 			ifg.novoEmprestismo("Brave new hello world");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		
 		// testando devolucao
 		try {
 			ifg.novaDevolucao("Brave new Hello world");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		try {
 			ifg.novaDevolucao("Brave new world");
-		} catch (Exception e) {
+		} catch (MinhaExcecao e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		

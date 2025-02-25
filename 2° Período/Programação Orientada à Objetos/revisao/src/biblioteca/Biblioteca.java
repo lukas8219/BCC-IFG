@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import excecao.MinhaExcecao;
 import itensBiblioteca.DVD;
 import itensBiblioteca.Item;
 import itensBiblioteca.Livro;
 import itensBiblioteca.Revista;
+import itensBiblioteca.Status;
 
 public class Biblioteca {
 	private static int totalItensEmprestados = 0;
@@ -70,8 +72,8 @@ public class Biblioteca {
 		return totalItensEmprestados;
 	}
 	
-	public static void contagemItensEmprestados(char a) {
-		if (a == '+') {
+	public static void contagemItensEmprestados(Status status) {
+		if (status == Status.EMPRESTADO) {
 			totalItensEmprestados++;
 		} else {
 			totalItensEmprestados--;
@@ -104,26 +106,26 @@ public class Biblioteca {
 	}
 	
 	// idealmente, o parametro de entrada deveria ser o ID, mas assim é mais facil de testar
-	public void novoEmprestismo(String titulo) throws Exception {
+	public void novoEmprestismo(String titulo) throws MinhaExcecao {
 		Item item = getItemBiblioteca(titulo);
 		if (item == null ) {
-			throw new Exception ("Item nao disponivel no sistema.");
+			throw new MinhaExcecao ("Item nao disponivel no sistema.");
 		} else if (item.getStatus().equals("Emprestado")) {
-			throw new Exception ("Item ja emprestado.");
+			throw new MinhaExcecao ("Item ja emprestado.");
 		}
 		item.emprestar();
 		System.out.println("Emprestimo realizado com sucesso: " + item.getTitulo() + " " + item.getStatus());
-		Biblioteca.contagemItensEmprestados('+');
+		Biblioteca.contagemItensEmprestados(Status.EMPRESTADO);
 	}
 	
 	// idealmente, o parametro de entrada deveria ser o ID, mas assim é mais facil de testar
-	public void novaDevolucao(String titulo) throws Exception {
+	public void novaDevolucao(String titulo) throws MinhaExcecao {
 		Item item = getItemBiblioteca(titulo);
 		if (item == null ) {
-			throw new Exception ("Item nao disponivel no sistema.");
+			throw new MinhaExcecao ("Item nao disponivel no sistema.");
 		} 
 		item.devolver();
-		Biblioteca.contagemItensEmprestados('-');
+		Biblioteca.contagemItensEmprestados(Status.DISPONIVEL);
 		System.out.println("Devolucao realizado com sucesso: " +  item.getTitulo() + " " + item.getStatus());
 	}
 }

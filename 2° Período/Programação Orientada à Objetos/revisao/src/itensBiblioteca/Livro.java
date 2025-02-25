@@ -6,7 +6,7 @@ public class Livro extends Item {
 	private String ISBN;
 	private String editora;
 	
-	public Livro (String id, String titulo, String autor, Date anoPublicacao, String status, String ISBN, String editora) {
+	public Livro (String id, String titulo, String autor, Date anoPublicacao, Status status, String ISBN, String editora) {
 		super(id, titulo, autor, anoPublicacao, status);
 		this.setISBN(ISBN);
 		this.setEditora(editora);

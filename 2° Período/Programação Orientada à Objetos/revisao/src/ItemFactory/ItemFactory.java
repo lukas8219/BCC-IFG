@@ -5,7 +5,7 @@ import java.util.Date;
 import itensBiblioteca.*;
 
 public class ItemFactory {
-	public static Item newItem(String tipo, String id, String titulo, String autor, Date anoPublicacao, String status, String ISBN, String editora, String ISSN, String idioma) {
+	public static Item newItem(String tipo, String id, String titulo, String autor, Date anoPublicacao, Status status, String ISBN, String editora, String ISSN, String idioma) {
 		Item item = null;
 		switch (tipo.toLowerCase()) {
 		case "livro":

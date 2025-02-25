@@ -6,7 +6,7 @@ public class Revista extends Item {
 	private String editora;
 	private String ISSN;
 	
-	public Revista(String id, String titulo, String autor, Date anoPublicacao, String status, String editora, String ISSN) {
+	public Revista(String id, String titulo, String autor, Date anoPublicacao, Status status, String editora, String ISSN) {
 		super(id, titulo, autor, anoPublicacao, status);
 		this.setEditora(editora);
 		this.setISSN(ISSN);

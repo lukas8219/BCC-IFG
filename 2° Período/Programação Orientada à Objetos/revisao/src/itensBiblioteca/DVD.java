@@ -5,7 +5,7 @@ import java.util.Date;
 public class DVD extends Item {
 	private String idioma;
 	
-	public DVD (String id, String titulo, String autor, Date anoPublicacao, String status, String idioma) {
+	public DVD (String id, String titulo, String autor, Date anoPublicacao, Status status, String idioma) {
 		super(id, titulo, autor, anoPublicacao, status);
 		this.setIdioma(idioma);
 	}

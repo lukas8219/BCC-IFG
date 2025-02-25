@@ -11,9 +11,9 @@ public abstract class Item implements ItemBiblioteca, InformacaoItem {
 	protected String titulo;
 	protected String autor;
 	protected Date anoPublicacao;
-	protected String status;
+	protected Status status;
 	
-	public Item(String id, String titulo, String autor, Date anoPublicacao, String status) {
+	public Item(String id, String titulo, String autor, Date anoPublicacao, Status status) {
 		this.setId(id);
 		this.setTitulo(titulo);
 		this.setAutor(autor);
@@ -26,11 +26,11 @@ public abstract class Item implements ItemBiblioteca, InformacaoItem {
 	}
 	
 	public void emprestar()  {
-		this.status = "Emprestado";
+		this.status = Status.EMPRESTADO;
 	}
 	
 	public void devolver() {
-		this.status = "Disponivel";
+		this.status = Status.DISPONIVEL;
 	}
 	
 	public String getId() {
@@ -62,10 +62,10 @@ public abstract class Item implements ItemBiblioteca, InformacaoItem {
 		this.anoPublicacao = anoPublicacao;
 	}
 	
-	public String getStatus() {
+	public Status getStatus() {
 		return this.status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 }
