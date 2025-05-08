@@ -204,7 +204,6 @@ double big0Fatorial(int n) {
     return (double)(fim - inicio) / CLOCKS_PER_SEC;
 }
 
-
 // binarySearch usada em logaritma
 int buscaBinaria(int array[], int tamanho, int alvo) {
     int inicio = 0, fim = tamanho - 1;
@@ -269,11 +268,6 @@ int fibonacci(int n) {
 }
 
 // permutacao usada em fatoral
-void trocar(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
 void permutacao(int array[], int inicio, int tamanho) {
     if (inicio == tamanho) { 
         return;
@@ -284,4 +278,9 @@ void permutacao(int array[], int inicio, int tamanho) {
             trocar(&array[inicio], &array[i]); // Desfaz a troca
         }
     }
+}
+void trocar(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
