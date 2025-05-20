@@ -39,6 +39,8 @@ void inserirFim(No **inicio, int valor) {
 
     if (*inicio == NULL) {
         *inicio = novo;
+        // seria preciso adicionar a linha abaixo, para garantir o codigo nao entrasse no proximo while
+        // return;
     }
 
     No *atual = *inicio;
@@ -49,6 +51,9 @@ void inserirFim(No **inicio, int valor) {
 }
 
 void imprimirLista(No *inicio) {
+    // aqui ou poderiamos alterar a declaracao da funcao para receber um ponteiro de ponteiro
+    // void imprimirLista(No **inicio)
+    // ou prosseguir como fiz abaixo, retirando o * de inicio
     No *atual = inicio;
     printf("Lista:\n");
     while (atual != NULL) {
