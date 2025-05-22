@@ -1,0 +1,40 @@
+a memória deve ser um vetor de palavras de oito bits de 154 posições, unsigned char memoria[154]
+
+todas as transferências entre MBR e a memória devem ser de byte em byte
+
+O simulador deve possuir uma maneira de ler um arquivo texto para carregar a memória com instruções e dados como
+apresentado na última página -> a entrada é um arquivo de texto
+
+registradores:
+- MBR – Memory Buffer Register
+- MAR – Memory Address Register
+- IR – Instruction Register
+- RO0 – Register Operand 0
+- RO1 – Register Operand 1
+- IMM – Immediate
+- PC – Program Counter unsigned short int pc
+- E, L e G – registradores internos que armazenam as flags ‘equal to’, ‘lower than’ e ‘greater than’
+- r0 a r3 – registradores de propósito-geral (GPRs) utilizados para manter temporariamente os operandos na ALU. unsigned short int reg[4]
+
+dados sempre ocupam 2 bytes
+instruções podem ocupar de 1 a 3
+    hlt/nop: 1 byte
+        0-4, opcode, 5-7, null
+    load/store/operacoes matematicas/operacoes logicas: 3 bytes
+
+
+
+BUSCA
+se read:
+    PC inorma MBA o endereço em RAM da próxima instrução
+    MBA solicita a RAM a próxima instrução
+    MBR recebe uma cópia da instrução
+se write:
+    PC informa a MBA o local onde a instrução deve ser armazenada
+    AC envia uma cópia do resultado da operação para MBR
+    MBR armazena o resultado no local indicado por MBA
+
+decodifica
+
+
+executa
